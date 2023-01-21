@@ -1,0 +1,2 @@
+# LiterallyTrash
+Smart trash gripper
