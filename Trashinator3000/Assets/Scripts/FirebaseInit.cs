@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Firebase.Firestore;
+using Firebase.Extensions;
 
 public class FirebaseInit : MonoBehaviour
 {
-    bool FirebaseIsInitialized;
+    public bool FirebaseIsInitialized;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +20,9 @@ public class FirebaseInit : MonoBehaviour
                 Firebase.FirebaseApp app = Firebase.FirebaseApp.DefaultInstance;
 
                 // Set a flag here to indicate whether Firebase is ready to use by your app.
+                Debug.Log("Ready to Use Firestore!");
                 FirebaseIsInitialized = true;
+                
 
             }
             else

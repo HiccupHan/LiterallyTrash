@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "112147889768",
+    "firebase_url": "https://trashinator3000-default-rtdb.firebaseio.com",
+    "project_id": "trashinator3000",
+    "storage_bucket": "trashinator3000.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:112147889768:android:1a11ed7880986d04ec05dd",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.Trashinator3000"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "112147889768-tnu2pvtd8boe67k0bdaivg1ogkb5sv0i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTuom4zgojY8lqxLESSNFz5hUlK7udy7k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "112147889768-tnu2pvtd8boe67k0bdaivg1ogkb5sv0i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
