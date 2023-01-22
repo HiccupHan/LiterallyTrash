@@ -15,6 +15,8 @@ public class FirebaseRead : MonoBehaviour
     bool added = false;
     string name = "gullu";
 
+    [SerializeField] Text displayReceived;
+
     [SerializeField] DeviceLocationProvider dlp;
     
     // Start is called before the first frame update
@@ -29,11 +31,13 @@ public class FirebaseRead : MonoBehaviour
     {
         if(firebaseInit.FirebaseIsInitialized && !SetupDefaultFirebase)
         {
+            displayReceived.text = "setup, not default yet";
             db = FirebaseFirestore.DefaultInstance;
+            displayReceived.text = "setup, default";
             SetupDefaultFirebase = true;
         }
-        if(SetupDefaultFirebase && added == false)
-        {
+        // if(SetupDefaultFirebase && added == false)
+        // {
 
             // DocumentReference docRef = db.Collection("users").Document("37wrA8Es5jjVUtuW75BI");
             // docRef.GetSnapshotAsync().ContinueWithOnMainThread(task =>
@@ -59,27 +63,29 @@ public class FirebaseRead : MonoBehaviour
 
                       
 
-            added = true;
+        //     added = true;
 
-        }
+        // }
     }
 
     public void AddTrashLoc()
     {
-        
-        //GeoPoint gp = new GeoPoint(dlp._publicLocation[0], dlp._publicLocation[1]);
-        string location = "34.06269849777831, -118.44806257612713";
-        DocumentReference docRef = db.Collection("trash_locs").Document();
-                       Dictionary<string, string> user = new Dictionary<string, string>
-            {
-                   { "location", location },
-            };
+        if(firebaseInit.FirebaseIsInitialized)
+        {
+            //GeoPoint gp = new GeoPoint(dlp._publicLocation[0], dlp._publicLocation[1]);
+            string location = "34.06269849777831, -118.44806257612713";
+            DocumentReference docRef = db.Collection("trash_locs").Document();
+                        Dictionary<string, string> user = new Dictionary<string, string>
+                {
+                    { "location", location },
+                };
 
-            //docRef.Id for getting the auto gen id
+                //docRef.Id for getting the auto gen id
 
-        docRef.SetAsync(user).ContinueWithOnMainThread(task => {
-            Debug.Log("Added data to the document in the trash_loc collection.");
-        });
+            docRef.SetAsync(user).ContinueWithOnMainThread(task => {
+                Debug.Log("Added data to the document in the trash_loc collection.");
+            });
+        }
     }
 
 }

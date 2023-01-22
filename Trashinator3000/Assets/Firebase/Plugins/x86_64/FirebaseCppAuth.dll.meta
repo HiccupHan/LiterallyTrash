@@ -16,6 +16,14 @@ PluginImporter:
   validateReferences: 1
   platformData:
   - first:
+      : Any
+    second:
+      enabled: 0
+      settings:
+        Exclude WebGL: 1
+        Exclude Win: 1
+        Exclude iOS: 1
+  - first:
       : Linux
     second:
       enabled: 0
@@ -58,7 +66,7 @@ PluginImporter:
   - first:
       Any: 
     second:
-      enabled: 0
+      enabled: 1
       settings: {}
   - first:
       Editor: Editor

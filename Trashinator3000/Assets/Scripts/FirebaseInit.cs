@@ -8,6 +8,8 @@ public class FirebaseInit : MonoBehaviour
 {
     public bool FirebaseIsInitialized;
     // Start is called before the first frame update
+    
+    
     void Start()
     {
         FirebaseIsInitialized = false;

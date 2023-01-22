@@ -16,7 +16,7 @@ public class BleInit : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        displayReceived.text = "CONNECTED";
+        // displayReceived.text = "CONNECTED";
         IsConnected = false;
         BluetoothService.CreateBluetoothObject();
         deviceName = "Trashinator3000";
@@ -59,11 +59,11 @@ public class BleInit : MonoBehaviour
             IsConnected =  BluetoothService.StartBluetoothConnection(deviceName);
             if(IsConnected)
             {
-                displayReceived.text = "CONNECTED";
+                // displayReceived.text = "CONNECTED";
             }
             else
             {
-                displayReceived.text = "NOTCONN";
+                // displayReceived.text = "NOTCONN";
             }
         }
     }
