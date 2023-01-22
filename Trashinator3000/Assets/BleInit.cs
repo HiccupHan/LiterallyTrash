@@ -34,7 +34,7 @@ public class BleInit : MonoBehaviour
                 if (datain.Length > 1)
                 {
                     dataRecived = datain;
-                    print(dataRecived);
+                    // print(dataRecived);
                     displayReceived.text = dataRecived;
                 }
 
@@ -55,7 +55,7 @@ public class BleInit : MonoBehaviour
     {
         if (!IsConnected)
         {
-            print(deviceName);
+            // print(deviceName);
             IsConnected =  BluetoothService.StartBluetoothConnection(deviceName);
             if(IsConnected)
             {
