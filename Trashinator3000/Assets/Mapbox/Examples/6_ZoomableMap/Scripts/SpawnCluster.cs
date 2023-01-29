@@ -14,7 +14,7 @@
 	using UnityEngine.UI;
 	using TMPro;
 
-	public class SpawnOnMap : MonoBehaviour
+	public class SpawnCluster : MonoBehaviour
 	{
 		[SerializeField]
 		AbstractMap _map;
@@ -28,19 +28,15 @@
 		[SerializeField]
 		List<GameObject> _markerPrefabs;
 
-		[SerializeField]
-		TMP_Text _username;
-
 		List<GameObject> _spawnedObjects;
 		List<string> _locationStrings;
 		Vector2d[] _locations;
-		private readonly string FUNCTION_URL = "https://us-central1-trashinator3000.cloudfunctions.net/addTrashLocation?location=";		
 		void Start()
 		{
 			_spawnedObjects = new List<GameObject>();
 			_locationStrings = new List<string>();
 			
-			GetFlowerLocation();
+			GetClusterLocation();
 
 		}
 
@@ -98,24 +94,11 @@
         return results;
 }
 
-    private void GetFlowerLocation()
+    private void GetClusterLocation()
     {
-        string url = "https://us-central1-trashinator3000.cloudfunctions.net/getFlowerLocations";
+        string url = "https://us-central1-trashinator3000.cloudfunctions.net/getHotspotLocations";
         UnityWebRequest request = UnityWebRequest.Get(url);
         StartCoroutine(OnResponse(request));
     }
-
-	public void addFlower(string coord) {
-		_locationStrings.Add(coord);
-		Vector2d convertedCoord = Conversions.StringToLatLon(coord);
-		//Debug.Log(_locations[i]);
-		// Randomly select one of the prefabs
-		var randomIndex = Random.Range(0, _markerPrefabs.Count-1); 
-		var prefab = _markerPrefabs[randomIndex];
-		var instance = Instantiate(prefab);
-		instance.transform.localPosition = _map.GeoToWorldPosition(convertedCoord, true);
-		instance.transform.localScale = new Vector3(_spawnScale, _spawnScale, _spawnScale);
-		_spawnedObjects.Add(instance);
-	}
 	}
 }
